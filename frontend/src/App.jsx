@@ -37,6 +37,9 @@ import {
 } from 'lucide-react';
 import { getDiseaseDetails } from './diseaseData';
 
+// Configurable Backend API URL (for Vercel deployment)
+const BACKEND_URL = (import.meta.env.VITE_BACKEND_URL || 'http://localhost:8000').replace(/\/+$/, '');
+
 export default function App() {
   // Navigation View State: 'landing' | 'diagnosis'
   const [currentView, setCurrentView] = useState('landing');
@@ -101,7 +104,7 @@ export default function App() {
   useEffect(() => {
     async function checkBackend() {
       try {
-        const res = await fetch('http://localhost:8000/api/health');
+        const res = await fetch(`${BACKEND_URL}/api/health`);
         if (res.ok) {
           setBackendStatus('online');
         } else {
@@ -182,7 +185,7 @@ export default function App() {
         try {
           const formData = new FormData();
           formData.append('file', selectedFile);
-          const valRes = await fetch('http://localhost:8000/api/validate-leaf', {
+          const valRes = await fetch(`${BACKEND_URL}/api/validate-leaf`, {
             method: 'POST',
             body: formData
           });
@@ -244,7 +247,7 @@ export default function App() {
       // to correct any CNN classification mistakes (e.g. Potato mistagged as Corn)
       if (backendStatus === 'online' && geminiKey && imageBase64) {
         try {
-          const verifyRes = await fetch('http://localhost:8000/api/gemini/verify-diagnosis', {
+          const verifyRes = await fetch(`${BACKEND_URL}/api/gemini/verify-diagnosis`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -318,7 +321,7 @@ export default function App() {
 
       if (backendStatus === 'online') {
         try {
-          const detailRes = await fetch(`http://localhost:8000/api/disease-info/${encodeURIComponent(topClass.name)}`);
+          const detailRes = await fetch(`${BACKEND_URL}/api/disease-info/${encodeURIComponent(topClass.name)}`);
           if (detailRes.ok) {
             const json = await detailRes.json();
             setBackendDetailedInfo(json.data);
@@ -354,7 +357,7 @@ export default function App() {
 
     setIsFetchingOpinion(true);
     try {
-      const res = await fetch('http://localhost:8000/api/gemini/consult', {
+      const res = await fetch(`${BACKEND_URL}/api/gemini/consult`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -402,7 +405,7 @@ export default function App() {
     setIsGeminiThinking(true);
 
     try {
-      const res = await fetch('http://localhost:8000/api/gemini/consult', {
+      const res = await fetch(`${BACKEND_URL}/api/gemini/consult`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
