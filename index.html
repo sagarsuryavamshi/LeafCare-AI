@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeafCare AI | Plant Disease Detection</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h2>🌿 LeafCare AI</h2>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#detect">Detect Disease</a>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <h1>Plant Disease Detection</h1>
+        <p>Detect plant diseases using Artificial Intelligence.</p>
+        <a href="#detect" class="btn">Get Started</a>
+    </section>
+
+    <section class="detect" id="detect">
+
+        <h2>🌱 Analyze Your Plant</h2>
+        <p>Upload a clear image of a plant leaf.</p>
+
+        <input type="file" id="imageInput" accept="image/*">
+
+        <div>
+            <img id="preview" alt="Leaf preview">
+        </div>
+
+        <button class="btn" id="predictBtn">
+            Predict Disease
+        </button>
+
+        <div id="result"></div>
+
+        <!-- Detailed prediction results -->
+        <div id="resultCard" style="display:none;">
+
+            <h2>🔍 Analysis Results</h2>
+
+            <div class="result-item">
+                <h3>🌿 Plant Name</h3>
+                <p id="plantName">-</p>
+            </div>
+
+            <div class="result-item">
+                <h3>🦠 Detected Disease</h3>
+                <p id="diseaseName">-</p>
+            </div>
+
+            <div class="result-item">
+                <h3>📊 Confidence</h3>
+                <p id="confidence">-</p>
+            </div>
+
+            <div class="result-item">
+                <h3>📖 Disease Description</h3>
+                <p id="description">-</p>
+            </div>
+
+            <div class="result-item">
+                <h3>⚠️ Symptoms</h3>
+                <p id="symptoms">-</p>
+            </div>
+
+            <div class="result-item">
+                <h3>💊 Recommended Treatment</h3>
+                <p id="treatment">-</p>
+            </div>
+
+            <div class="result-item">
+                <h3>🛡️ Prevention</h3>
+                <p id="prevention">-</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="about">
+        <h2>About LeafCare AI</h2>
+        <p>
+            LeafCare AI uses a Convolutional Neural Network
+            to identify possible plant diseases from leaf images.
+        </p>
+    </section>
+
+    <footer>
+        <p>© 2026 LeafCare AI | Plant Disease Detection</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0/dist/tf.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>

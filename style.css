@@ -1,0 +1,221 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #f4f8f4;
+    color: #26382c;
+}
+
+/* Header */
+header {
+    background: #174d35;
+    color: white;
+    padding: 20px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h2 {
+    font-size: 25px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #a8e6bd;
+}
+
+/* Hero section */
+.hero {
+    text-align: center;
+    padding: 120px 20px;
+    background: linear-gradient(135deg, #dcefe1, #b9dfc4);
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: #174d35;
+}
+
+.hero p {
+    margin-bottom: 25px;
+    font-size: 19px;
+}
+
+/* Buttons */
+.btn {
+    background: #21834e;
+    color: white;
+    padding: 14px 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #145e36;
+    transform: translateY(-2px);
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Detection and About */
+.detect, #about {
+    text-align: center;
+    padding: 70px 20px;
+}
+
+.detect h2, #about h2 {
+    margin-bottom: 20px;
+    color: #174d35;
+    font-size: 30px;
+}
+
+.detect p, #about p {
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+/* Upload area */
+#imageInput {
+    margin-top: 25px;
+    padding: 12px;
+    background: white;
+    border: 1px solid #cbdccf;
+    border-radius: 8px;
+    max-width: 100%;
+}
+
+#preview {
+    display: none;
+    max-width: 300px;
+    max-height: 300px;
+    margin: 20px auto;
+    border-radius: 12px;
+    object-fit: contain;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Status message */
+#result {
+    margin: 25px auto;
+    font-weight: bold;
+    max-width: 600px;
+    line-height: 1.6;
+}
+
+/* Detailed result card */
+#resultCard {
+    max-width: 750px;
+    margin: 35px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(23, 77, 53, 0.12);
+    text-align: left;
+    border-top: 5px solid #21834e;
+}
+
+#resultCard h2 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.result-item {
+    padding: 18px;
+    margin-bottom: 14px;
+    background: #f1f8f2;
+    border-radius: 10px;
+    border-left: 4px solid #21834e;
+}
+
+.result-item h3 {
+    color: #174d35;
+    font-size: 17px;
+    margin-bottom: 8px;
+}
+
+.result-item p {
+    color: #405447;
+    font-size: 15px;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+
+#confidence {
+    color: #21834e;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+/* About section */
+#about {
+    background: #e8f3ea;
+}
+
+#about p {
+    max-width: 750px;
+    margin: auto;
+}
+
+/* Footer */
+footer {
+    background: #174d35;
+    color: white;
+    text-align: center;
+    padding: 25px;
+}
+
+/* Mobile design */
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav a {
+        margin: 0 8px;
+        font-size: 14px;
+    }
+
+    .hero {
+        padding: 85px 15px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    #resultCard {
+        padding: 18px;
+        margin: 25px 10px;
+    }
+
+    .result-item {
+        padding: 14px;
+    }
+}
